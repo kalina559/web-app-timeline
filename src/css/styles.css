@@ -1,0 +1,275 @@
+html {
+    font-family: Helvetica;
+}
+
+.input-field {
+    z-index: 5;
+}
+
+body {
+    font-family: Helvetica;
+    background-color: #035d96 !important;
+}
+
+.body-background {
+    background-color: #035d96 !important;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: white;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+}
+
+/* Container around content */
+.container {
+    padding: 10px 40px;
+    position: relative;
+    margin-left: 0;
+    width: 50%;
+}
+
+/* The containers to the left of the timeline */
+.timeline .container:nth-child(odd) {
+    left: 0;
+}
+
+/* The arrow pointing to the timeline from the left*/
+.timeline .container:nth-child(odd)::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    right: 30px;
+    border: medium solid white;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent white;
+}
+
+/* The circles on a timeline */
+.timeline .container:nth-child(odd)::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -17px;
+    background-color: white;
+    border: 4px solid #FF9F55;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+    box-sizing: unset;
+}
+
+/* The containers to the right of the timeline */
+.timeline .container:nth-child(even) {
+    left: 50%;
+}
+
+/* The circles on a timeline */
+.timeline .container:nth-child(even)::before {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    left: -17px;
+    background-color: white;
+    border: 4px solid #FF9F55;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+    box-sizing: unset;
+}
+
+/* The arrow pointing to the timeline from the right*/
+.timeline .container:nth-child(even)::after {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    left: 30px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+}
+
+/* The actual content */
+.content {
+    padding: 20px 30px;
+    background-color: white;
+    position: relative;
+    border-radius: 6px;
+}
+
+.modal-field {
+    display: flex;
+}
+
+.add-update-modal {
+    z-index: 200000;
+}
+
+.error-modal {
+    z-index: 300000;
+}
+
+.error-modal-title {
+    color: #de7171;
+}
+
+.error-message-content {
+    min-width: -webkit-fill-available
+}
+
+h2 {
+    font-weight: bold;
+}
+
+.category-color-box {
+    float: left;
+    height: 20px;
+    width: 20px;
+    border: 1px solid black;
+    clear: both;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.category-legend {
+    position: absolute;
+    padding: 15px;
+}
+
+.category-name {
+    margin-left: 15px;
+    font-size: large;
+    font-weight: 500;
+}
+
+.delete-button {
+    cursor: pointer;
+    margin-left: 10px;
+    color: red;
+}
+
+.event-image {
+    max-width: -webkit-fill-available
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+#print-button-layout {
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 5px;
+}
+
+#submit-button {
+    margin-bottom: 5px;
+}
+
+#login-logout-layout {
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+
+#add-new-event-button {
+    margin-top: 25px;
+}
+
+.centered-div {
+    display: flex;
+    justify-content: center;
+}
+
+/* Handling the page printing */
+@media print and (color) {
+    * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    body {
+        zoom: 40%;
+    }
+
+    .ui-element {
+        visibility: hidden;
+    }
+
+    /*
+    * window.print() messes up the position of containers to the left
+    * so we need to manually correct this.
+    */
+    .timeline .container:nth-child(odd) {
+        left: -392.5px;
+    }
+}
+
+/*
+	Fullscreen overlay
+*/
+.overlay {
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+    background-color: rgba(0, 0, 0, 0.6);
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0 linear 0.5s, opacity 0.5s ease-in-out;
+}
+
+/* For vertical alignment */
+.overlay::before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -.35em;
+}
+
+.overlay-visible {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 1s;
+}
+
+.overlay .fa {
+    color: #dddddd;
+}
+
+.wide-text-area {
+    min-width: -webkit-fill-available
+}
+
+.preview-modal {
+    z-index: 100000;
+}
