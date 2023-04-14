@@ -273,3 +273,122 @@ h2 {
 .preview-modal {
     z-index: 100000;
 }
+
+
+/* menu */
+
+#nav-left-menu ul {
+    /*For formatting navbar*/
+    font-size: 0 !important;
+    display: flex;
+    justify-content: center;
+}
+
+#nav-left-menu ul li {
+    font-size: 14px;
+    display: inline-block;
+}
+
+
+nav.fill ul li {
+    width: 100%;
+}
+
+@media (min-width: 425px) {
+    nav.fill ul li {
+        width: 50%;
+    }
+}
+
+@media (min-width: 600px) {
+    nav.fill ul li {
+        width: 33.33%;
+        /* Ugly, but works in practice. */
+    }
+}
+
+@media (min-width: 750px) {
+    nav.fill ul li {
+        width: 25%;
+    }
+}
+
+@media (min-width: 925px) {
+    nav.fill ul li {
+        width: 20%;
+    }
+}
+
+/* Styling of nav headers */
+nav .nav-entry-text {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Styling of the actual menu items */
+nav ul li a {
+    display: inline-block;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    color: black;
+}
+
+nav ul li a:hover,
+nav ul li a:focus,
+nav ul li.active a {
+    text-decoration: none;
+}
+
+/* Should be placed before the hover state for consistency when item is right-clicked. */
+nav ul li a:focus {
+    color: black;
+}
+
+nav ul li a:hover,
+nav ul li.active a {
+    color: #fff;
+    background-color: blueviolet;
+}
+
+/*
+	Control buttons at the top of content
+*/
+.control-buttons {
+    float: right;
+    margin-bottom: 10px;
+}
+
+.control-buttons .btn-control {
+    border-top: none;
+    border-right: none;
+    border-radius: 0;
+    border-color: #e4e4e4;
+    width: 50px;
+    height: 42px;
+    font-size: 20px;
+}
+
+.control-buttons .btn-control:hover {
+    border-color: #e4e4e4;
+}
+
+.about {
+    padding: 40px;
+}
+
+.about h2 {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.about p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}

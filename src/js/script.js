@@ -13,6 +13,7 @@ $(document).ready(function () {
 
 var appModel = new function () {
     var self = this;
+    this.currentPage = ko.observable('timeline')
     this.userLoggedIn = ko.observable(false)
     this.showLogin = ko.observable(false)
     this.loginButtonText = ko.observable('Login')
@@ -25,9 +26,11 @@ var appModel = new function () {
     this.apiCallsInProcess = ko.observable(0)
     this.serverErrorMessage = ko.observable(null)
     this.serverErrorStackTrace = ko.observable(null)
-
     this.dateFormat = 'DD/MM/YYYY'
 
+    self.changePage = function(pageId) {
+        this.currentPage(pageId)
+    }
 
     self.checkIfUserLoggedIn = function () {
         this.makeAjaxCall({}, '../src/php/controllers/account/LoginStateController.php',
